@@ -94,7 +94,11 @@ typedef enum : NSUInteger {
     picker.colsInPortrait = 4;
     picker.colsInLandscape = 6;
     picker.minimumInteritemSpacing = 2.0;
-
+    
+    // bugfix ios14: plugin does not handle dismissing picture selection dialog,
+    // see https://github.com/Telerik-Verified-Plugins/ImagePicker/issues/217
+    picker.modalPresentationStyle = UIModalPresentationFullScreen;
+    
     if(!disable_popover) {
         picker.modalPresentationStyle = UIModalPresentationPopover;
 
